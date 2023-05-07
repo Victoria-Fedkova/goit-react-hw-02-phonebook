@@ -12,7 +12,7 @@ return  (<ul>
         </ul>)
 }
 ContactList.propeTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.object),
+    contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
     onDelete: PropTypes.func,
   };
 

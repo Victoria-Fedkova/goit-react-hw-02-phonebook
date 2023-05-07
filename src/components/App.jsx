@@ -37,6 +37,10 @@ class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  filterReset =(e) =>{
+    this.setState({ filter: '' });
+  }
+
   getVisibleContacts = () => {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLocaleLowerCase();
@@ -56,11 +60,16 @@ render(){
       <ContactForm  contacts = {contacts} onSubmit={this.addContact}/>
 
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={this.changeFilter}/>
-      <ContactList
+      <Filter value={filter} onChange={this.changeFilter} onFilterReset={this.filterReset}/>
+
+      {visibleContacts.length > 0 ? 
+      (<ContactList
         contacts={visibleContacts}
         onDeleteContact={this.deleteContact}
       />
+      )
+      : (<p>There is no such contact...</p>)  
+    }
     </div>
   );
 
