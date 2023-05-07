@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component{
+    static defaultProps= {
+        contacts: []
+    }
+
     state = {
         name: '',
         number: ''
@@ -65,4 +70,8 @@ class ContactForm extends Component{
     }
 }
 
+ContactForm.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+  };
+  
 export default ContactForm;
