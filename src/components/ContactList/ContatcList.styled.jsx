@@ -9,11 +9,21 @@ margin-bottom: 1rem;
 border-collapse: collapse;
 `;
 
-export const  TableHead = styled.th`
-/* vertical-align: bottom; */
+export const TableRow = styled.tr`
+border-top: 1px solid #dee2e6;
+border-bottom: 1px solid #dee2e6;
+
+`;
+
+export const TableHead = styled.th`
 padding: 0.75rem;
 border-bottom: 2px solid #dee2e6;
-border-top: 1px solid #dee2e6;
+font-weight: 700;
+`;
+
+export const TableD = styled.td`
+padding: 0.5rem;
+font-weight:400;
 `;
 
 export const DelBtn = styled.button`

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Table, TableHead, DelBtn} from './ContatcList.styled'
+import {Table, TableHead, DelBtn, TableD, TableRow} from './ContatcList.styled'
 import {ReactComponent as Logo} from './Delete-button.svg';
 const ContactList = ({contacts, onDeleteContact}) => {
 // return  (<ul>
@@ -24,11 +24,11 @@ return (
     </thead>
     <tbody>
     {contacts.map(({id, name, number})=>(
-      <tr key={id}>
-        <TableHead>{name}</TableHead>
-        <TableHead>{number}</TableHead>
-        <TableHead><DelBtn type="button" onClick={()=>onDeleteContact(id)}><Logo/></DelBtn></TableHead>
-      </tr>
+      <TableRow key={id}>
+        <TableD>{name}</TableD>
+        <TableD>{number}</TableD>
+        <TableD><DelBtn type="button" onClick={()=>onDeleteContact(id)}><Logo/></DelBtn></TableD>
+      </TableRow>
       ))}
     </tbody>
   </Table>
