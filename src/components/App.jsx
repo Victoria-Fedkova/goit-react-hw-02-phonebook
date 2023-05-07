@@ -5,6 +5,8 @@ import ContactForm from "./ContactForm";
 import Filter from "./Filter";
 import ContactList from "./ContactList";
 
+import { Container, Heading } from "./App.styled";
+
 class App extends Component {
   state = {
     contacts: [
@@ -55,11 +57,11 @@ render(){
   const visibleContacts = this.getVisibleContacts();
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <Container>
+      <Heading>Phonebook</Heading>
       <ContactForm  contacts = {contacts} onSubmit={this.addContact}/>
 
-      <h2>Contacts</h2>
+      <Heading>Contacts</Heading>
       <Filter value={filter} onChange={this.changeFilter} onFilterReset={this.filterReset}/>
 
       {visibleContacts.length > 0 ? 
@@ -68,9 +70,9 @@ render(){
         onDeleteContact={this.deleteContact}
       />
       )
-      : (<p>There is no such contact...</p>)  
+      : (<p>It's empty. You don't have any contacts.</p>)  
     }
-    </div>
+    </Container>
   );
 
 }

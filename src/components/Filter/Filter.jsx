@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
+import { Form, FormGroup, FormInput, AddBtn} from './Filter.styled'
 
 
 const Filter = ({value, onChange, onFilterReset})=> (
-    <div>
-        <label>
+    <Form>
+        <FormGroup>
         Find contacts by name
-        <input
+        <FormInput
         type="text"
         value={value}
         onChange={onChange}
         />
-    </label>
-    <button type="button" onClick={onFilterReset}>X</button>
-    </div>
+    </FormGroup>
+    <AddBtn type="button" onClick={onFilterReset}>Clear</AddBtn>
+    </Form>
     )
 
 Filter.propeTypes = {

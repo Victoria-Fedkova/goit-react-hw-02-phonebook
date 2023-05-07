@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
+import {Form, FormGroup, FormInput, AddBtn} from './ContactForm.styled'
+
 class ContactForm extends Component{
     static defaultProps= {
         contacts: []
@@ -38,10 +40,10 @@ class ContactForm extends Component{
 
     render(){
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
+            <Form onSubmit={this.handleSubmit}>
+                <FormGroup>
                     Name
-                    <input
+                    <FormInput
                         type="text"
                         name="name"
                         value={this.state.name}
@@ -50,9 +52,9 @@ class ContactForm extends Component{
                         required
                         onChange={this.handleChange}
                         />
-                </label>
-                <label> Number
-                    <input
+                </FormGroup>
+                <FormGroup> Number
+                    <FormInput
                         type="tel"
                         name="number"
                         value={this.state.number}
@@ -61,10 +63,10 @@ class ContactForm extends Component{
                         required
                         onChange={this.handleChange}
                     />
-                </label>
-            <button type="submit" 
-            >Add contact</button>
-        </form>
+                </FormGroup>
+            <AddBtn type="submit" 
+            >Add</AddBtn>
+        </Form>
 
         )
     }
