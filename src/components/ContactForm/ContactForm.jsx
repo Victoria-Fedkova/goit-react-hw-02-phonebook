@@ -67,13 +67,17 @@ class ContactForm extends Component{
             <AddBtn type="submit" 
             >Add</AddBtn>
         </Form>
-
         )
     }
 }
 
 ContactForm.propTypes = {
-    handleSubmit: PropTypes.func,
+    contacts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })).isRequired,
+      onSubmit: PropTypes.func.isRequired,
   };
   
 export default ContactForm;

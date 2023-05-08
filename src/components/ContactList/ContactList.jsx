@@ -1,16 +1,9 @@
 import PropTypes from 'prop-types';
-import {Table, TableHead, DelBtn, TableD, TableRow} from './ContatcList.styled'
-import {ReactComponent as Logo} from './Delete-button.svg';
+import {Table, TableHead} from './ContatcList.styled'
+
+import ContactListRow from './ContactListRow/';
+
 const ContactList = ({contacts, onDeleteContact}) => {
-// return  (<ul>
-//             {contacts.map(({id, name, number})=>(
-//             <li key={id}>
-//                 <p>{name}</p>
-//                 <p>{number}</p>
-//                 <button type="button" onClick={()=>onDeleteContact(id)}>Delete</button>
-//             </li>)  
-//             )} 
-//         </ul>)
 
 return (
   <div>
@@ -24,23 +17,21 @@ return (
     </thead>
     <tbody>
     {contacts.map(({id, name, number})=>(
-      <TableRow key={id}>
-        <TableD>{name}</TableD>
-        <TableD>{number}</TableD>
-        <TableD><DelBtn type="button" onClick={()=>onDeleteContact(id)}><Logo/></DelBtn></TableD>
-      </TableRow>
+      <ContactListRow key={id} id={id} name={name} number={number} onDeleteContact={onDeleteContact}/>
       ))}
     </tbody>
   </Table>
 </div>
-
 )
 }
+
 ContactList.propeTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-    onDelete: PropTypes.func,
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    number: PropTypes.string,
+  })).isRequired,
+    onDelete: PropTypes.func.isRequired,
   };
 
 export default ContactList;
-
-
